@@ -27,7 +27,12 @@ class TypingState extends FlxState
 	}
 
 	private var keys:Array<FlxKey> = [
-		A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, ZERO
+        // letters
+		A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
+        // special letters: numbers
+        ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, ZERO,
+        // special letters: symbols(?)
+        SPACE
 	];
 
     private var specialLetters:Map<FlxKey, Dynamic> = [
