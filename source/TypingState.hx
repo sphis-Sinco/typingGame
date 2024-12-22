@@ -31,27 +31,36 @@ class TypingState extends FlxState
 		A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z,
         // special letters: numbers
         ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, ZERO,
+        NUMPADONE, NUMPADTWO, NUMPADTHREE, NUMPADFOUR, NUMPADFIVE, NUMPADSIX, NUMPADSEVEN, NUMPADEIGHT, NUMPADNINE, NUMPADZERO,
         // special letters: symbols(?)
-        SPACE
+        SPACE,PERIOD, GRAVEACCENT, SLASH,LBRACKET,
+        NUMPADPERIOD,BACKSLASH,RBRACKET
 	];
 
     private var specialLetters:Map<FlxKey, Dynamic> = [
-		ONE => 1,
-		TWO => 2,
-		THREE => 3,
-		FOUR => 4,
-		FIVE => 5,
-		SIX => 6,
-		SEVEN => 7,
-		EIGHT => 8,
-		NINE => 9,
-		ZERO => 0,
-        SPACE => ' '
+		ONE => 1, NUMPADONE => 1,
+		TWO => 2, NUMPADTWO => 2,
+		THREE => 3, NUMPADTHREE => 3,
+		FOUR => 4, NUMPADFOUR => 4, 
+        FIVE => 5, NUMPADFIVE => 5, 
+        SIX => 6, NUMPADSIX => 6, 
+        SEVEN => 7, NUMPADSEVEN => 7, 
+        EIGHT => 8, NUMPADEIGHT => 8, 
+        NINE => 9, NUMPADNINE => 9, 
+        ZERO => 0, NUMPADZERO => 0,
+        SPACE => ' ',
+        PERIOD => '.',
+        GRAVEACCENT => '`',
+        NUMPADPERIOD => '.',
+        SLASH => '/',
+        BACKSLASH => '\\',
+        LBRACKET => '{',
+        RBRACKET => '}',
 	];
 
 	override function update(elapsed:Float)
 	{
-		if (CAN_TYPE)
+        if (CAN_TYPE)
 		{
 			typeUpdate();
 		}
@@ -85,7 +94,7 @@ class TypingState extends FlxState
 			}
 		}
 
-		if (FlxG.keys.justReleased.BACKSPACE)
+		if (FlxG.keys.pressed.BACKSPACE)
 			updateText(setText.substring(0, setText.length - 1));
 	}
 }
